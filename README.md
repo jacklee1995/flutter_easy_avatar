@@ -1,10 +1,18 @@
 # easy_avatar
 
 A plug-in that provides solutions to avatar-related problems in Flutter applications.
+在 Flutter 应用程序中提供头像相关问题的解决方案的插件。
 
-## Why Easy Avatar?
+**Author**: [Jcak Lee](https://blog.csdn.net/qq_28550263)
+**Homepage**: [http://thispage.tech:9680/jclee1995/flutter-easy-avatar](http://thispage.tech:9680/jclee1995/flutter-easy-avatar)
+**repository**: [https://github.com/jacklee1995/flutter_easy_avatar.git](https://github.com/jacklee1995/flutter_easy_avatar.git)
 
-Flutter中提供了一个代表用户的圆圈类 'CircleAvatar'，
+![Alt text](./qemu-system-x86_64_xwZukX8r5s.png)
+
+
+| ![Alt text](./qemu-system-x86_64_WIemLM6fwV.png) | ![Alt text](./qemu-system-x86_64_bnst46VJaj.png) | ![Alt text](./qemu-system-x86_64_lAwJKTD6m8.png) |
+|-|-|-|-|
+| ![Alt text](./qemu-system-x86_64_7WSEeCgXhe.gif) | ![Alt text](./qemu-system-x86_64_fEu0UcyoNG.png) | ![Alt text](./qemu-system-x86_64_dm65rAAqmW.png) |
 
 ## Getting Started
 
@@ -231,6 +239,10 @@ Creates an Avatar widget.
 - `interlayerBorder` (Border, optional): The interlayer border for the avatar.
 
   - 头像的中间层边框。
+
+## Issue Tracker
+
+你可以在 Github 上报告错误：[https://github.com/jacklee1995/flutter_easy_avatar/issues](https://github.com/jacklee1995/flutter_easy_avatar/issues)
 
 ## License
 
