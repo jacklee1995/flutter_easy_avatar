@@ -8,13 +8,15 @@ Flutter中提供了一个代表用户的圆圈类 'CircleAvatar'，
 
 ## Getting Started
 
+The simplest example is to use the default avatar and default parameters:
 最简单的例子是使用默认头像及默认参数：
 
 ```dart
 const Avatar()
 ```
 
-其效运行果如下：
+The effect of this code is as follows:
+其运行效果如下：
 
 ![Alt text](./qemu-system-x86_64_WIemLM6fwV.png)
 
@@ -31,9 +33,10 @@ Avatar(
 ),
 ```
 
-其效运行果如下：
+The effect of this code is as follows:
+其运行效果如下：
 
-![Alt text](qemu-system-x86_64_bnst46VJaj.png)
+![Alt text](./qemu-system-x86_64_bnst46VJaj.png)
 
 如果要可以设置一个真实的网络图片URL作为头像，则它必须以http开头，例如：
 
@@ -47,12 +50,15 @@ const Avatar(
 ),
 ```
 
-其效运行果如下：
+The effect of this code is as follows:
+其运行效果如下：
 
-![Alt text](qemu-system-x86_64_lAwJKTD6m8.png)
+![Alt text](./qemu-system-x86_64_lAwJKTD6m8.png)
 
+Oh, this is me. An active user of the open source community!
 哦，这就是我了。一个开源社区的活跃用户！
 
+Actually, you can also use animation, which doesn't matter:
 其实你还可以使用动图，这没关系的：
 
 ```dart
@@ -66,10 +72,12 @@ const Avatar(
 ),
 ```
 
-其效运行果如下：
+The effect of this code is as follows:
+其运行效果如下：
 
-![Alt text](qemu-system-x86_64_7WSEeCgXhe.gif)
+![Alt text](./qemu-system-x86_64_7WSEeCgXhe.gif)
 
+If the avatar itself has a transparent background, you can see the default background color or background picture. Also, you can add an outer border for your avatar, such as:
 如果头像本身是透明背景的，可以看到默认背景色 或 背景图片。并且，你还可以为你的头像添加外边框，例如：
 
 ```dart
@@ -92,10 +100,12 @@ Avatar(
 ),
 ```
 
-其效运行果如下：
+The effect of this code is as follows:
+其运行效果如下：
 
-![Alt text](qemu-system-x86_64_fEu0UcyoNG.png)
+![Alt text](./qemu-system-x86_64_fEu0UcyoNG.png)
 
+Next is an example of using a network picture as a background picture, which will cover the background color effect:
 接下来是一个使用网络图片作为背景图的例子，这个网络图片将覆盖背景颜色效果：
 
 ```dart
@@ -111,10 +121,14 @@ const Avatar(
 ),
 ```
 
-其效运行果如下：
+The effect of this code is as follows:
+其运行效果如下：
 
-![Alt text](qemu-system-x86_64_dm65rAAqmW.png)
+![Alt text](./qemu-system-x86_64_dm65rAAqmW.png)
 
+Now, let's explore some special effects - Avatar out of the box.
+
+The `Avatar` class provides an intermediate layer border property called `interlayerBorder`. Using this property instead of the `border` property will help you achieve the effect of characters coming out of the frame. Here's an example code:
 下面我们玩一点特效——人物出框。
 `Avatar` 类提供了一个中间层边框属性 `interlayerBorder`，通过该属性而不是 `border` 属性设置的边框将帮助你完成人物出框的效果。示例代码如下：
 
@@ -138,7 +152,7 @@ Avatar(
 
 其效运行果如下：
 
-![Alt text](qemu-system-x86_64_xwZukX8r5s.png)
+![Alt text](./qemu-system-x86_64_xwZukX8r5s.png)
 
 尽情探索吧！~
 
