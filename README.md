@@ -4,9 +4,10 @@ A plug-in that provides solutions to avatar-related problems in Flutter applicat
 在 Flutter 应用程序中提供头像相关问题的解决方案的插件。
 
 **Author**: [Jcak Lee](https://blog.csdn.net/qq_28550263)
+**Email**: [291148484@163.com](mailto:291148484@163.com)
 **Homepage**: [http://thispage.tech:9680/jclee1995/flutter-easy-avatar](http://thispage.tech:9680/jclee1995/flutter-easy-avatar)
-**repository**: [https://github.com/jacklee1995/flutter_easy_avatar.git](https://github.com/jacklee1995/flutter_easy_avatar.git)
-
+**repository**: [https://github.com/jacklee1995/flutter_easy_avatar](https://github.com/jacklee1995/flutter_easy_avatar)
+**issue_tracker**:  [https://github.com/jacklee1995/flutter_easy_avatar/issues](https://github.com/jacklee1995/flutter_easy_avatar/issues)
 
 |![Alt text](./qemu-system-x86_64_xwZukX8r5s.png)|
 |-|
@@ -14,6 +15,8 @@ A plug-in that provides solutions to avatar-related problems in Flutter applicat
 | ![Alt text](./qemu-system-x86_64_WIemLM6fwV.png) | ![Alt text](./qemu-system-x86_64_bnst46VJaj.png) | ![Alt text](./qemu-system-x86_64_lAwJKTD6m8.png) |
 |-|-|-|
 | ![Alt text](./qemu-system-x86_64_7WSEeCgXhe.gif) | ![Alt text](./qemu-system-x86_64_fEu0UcyoNG.png) | ![Alt text](./qemu-system-x86_64_dm65rAAqmW.png) |
+
+---
 
 ## Getting Started
 
