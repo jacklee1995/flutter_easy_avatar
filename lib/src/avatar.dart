@@ -1,7 +1,9 @@
 import 'dart:convert';
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
+import 'background_layer.dart';
 import 'data.dart';
+import 'image_layer.dart';
 
 /// A widget that displays an avatar with various customization options.
 ///
@@ -120,120 +122,55 @@ class Avatar extends StatelessWidget {
         children: [
           // 1. Background Layer
           // 1. 背景层
-          Center(
-            child: backgroundImage != null
-                // 如果指定了背景图片，则使用背景图片
-                ? SizedBox(
-                    width: width,
-                    height: height,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(borderRadius),
-                      child: Image.network(
-                        backgroundImage!,
-                        width: width,
-                        height: height,
-                        fit: BoxFit.cover,
-                        errorBuilder: (context, error, stackTrace) {
-                          // 如果背景图片加载失败，不再显示背景图
-                          return Container(
-                            width: width,
-                            height: height,
-                            decoration: BoxDecoration(
-                              // border: interlayerBorder,
-                              borderRadius: BorderRadius.circular(borderRadius),
-                              color: backgroundColor,
-                            ),
-                          );
-                        },
-                      ),
-                    ),
-                  )
-
-                // 未指定背景图时，采用纯色默认背景图
-                : Container(
-                    width: width,
-                    height: height,
-                    decoration: BoxDecoration(
-                      // border: interlayerBorder,
-                      borderRadius: BorderRadius.circular(borderRadius),
-                      color: backgroundColor,
-                    ),
-                  ),
+          BackgroundLayer(
+            width: width,
+            height: height,
+            backgroundColor: backgroundColor,
+            borderRadius: borderRadius,
           ),
 
           // 2. 中间层
           // 2. interlayer
-          SizedBox(
-            width: width,
-            height: height,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(borderRadius),
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.transparent, // 透明背景
-                  border: interlayerBorder, // 中间层边框
-                  borderRadius: BorderRadius.circular(borderRadius),
-                ),
-              ),
-            ),
-          ),
-
-          // 3. Avatar Layer
-          // 3. 头像层
           Center(
             child: SizedBox(
               width: width,
               height: height,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(borderRadius),
-                child: AspectRatio(
-                  aspectRatio: 1,
-                  child: Container(
-                    width: width, // 设置头像层宽度
-                    height: height, // 设置头像层高度
-                    margin: padding, // 应用内边距，仅影响头像图片
-                    child: image.startsWith('http')
-                        ? Image.network(
-                            image,
-                            fit: BoxFit.cover,
-                            width: width, // 设置头像图像宽度
-                            height: height, // 设置头像图像高度
-                            errorBuilder: (context, error, stackTrace) {
-                              // 加载网络图片失败时显示 base64 头像
-                              return Image.memory(
-                                Uint8List.fromList(base64Decode(base64Avatar)),
-                                fit: BoxFit.cover,
-                              );
-                            },
-                          )
-                        : Image.asset(
-                            image,
-                            fit: BoxFit.cover,
-                            errorBuilder: (context, error, stackTrace) {
-                              // 加载本地图片失败时显示 base64 头像
-                              return Image.memory(
-                                Uint8List.fromList(base64Decode(base64Avatar)),
-                                fit: BoxFit.cover,
-                              );
-                            },
-                          ),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.transparent, // 透明背景
+                    border: interlayerBorder, // 中间层边框
+                    borderRadius: BorderRadius.circular(borderRadius),
                   ),
                 ),
               ),
             ),
           ),
-          // 4. 边框层
-          // 4. border layer
-          SizedBox(
+
+          // 3. Avatar Layer
+          // 3. 图像层
+          ImagerLayer(
             width: width,
             height: height,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(borderRadius),
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.transparent, // 透明背景
-                  border: border, // 边框
-                  borderRadius: BorderRadius.circular(borderRadius),
+            padding: padding,
+            image: image,
+            borderRadius: borderRadius,
+          ),
+          // 4. 边框层
+          // 4. border layer
+          Center(
+            child: SizedBox(
+              width: width,
+              height: height,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(borderRadius),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.transparent, // 透明背景
+                    border: border, // 边框
+                    borderRadius: BorderRadius.circular(borderRadius),
+                  ),
                 ),
               ),
             ),

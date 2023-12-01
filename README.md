@@ -9,12 +9,12 @@ A plug-in that provides solutions to avatar-related problems in Flutter applicat
 **repository**: [https://github.com/jacklee1995/flutter_easy_avatar](https://github.com/jacklee1995/flutter_easy_avatar)
 **issue_tracker**:  [https://github.com/jacklee1995/flutter_easy_avatar/issues](https://github.com/jacklee1995/flutter_easy_avatar/issues)
 
-|![Alt text](./qemu-system-x86_64_xwZukX8r5s.png)|
+|![Alt text](./example/readme_images/qemu-system-x86_64_xwZukX8r5s.png)|
 |-|
 
-| ![Alt text](./qemu-system-x86_64_WIemLM6fwV.png) | ![Alt text](./qemu-system-x86_64_bnst46VJaj.png) | ![Alt text](./qemu-system-x86_64_lAwJKTD6m8.png) |
+| ![Alt text](./example/readme_images/qemu-system-x86_64_WIemLM6fwV.png) | ![Alt text](./example/readme_images/qemu-system-x86_64_bnst46VJaj.png) | ![Alt text](./example/readme_images/qemu-system-x86_64_lAwJKTD6m8.png) |
 |-|-|-|
-| ![Alt text](./qemu-system-x86_64_7WSEeCgXhe.gif) | ![Alt text](./qemu-system-x86_64_fEu0UcyoNG.png) | ![Alt text](./qemu-system-x86_64_dm65rAAqmW.png) |
+| ![Alt text](./example/readme_images/qemu-system-x86_64_7WSEeCgXhe.gif) | ![Alt text](./example/readme_images/qemu-system-x86_64_fEu0UcyoNG.png) | ![Alt text](./example/readme_images/qemu-system-x86_64_dm65rAAqmW.png) |
 
 ---
 
@@ -30,7 +30,7 @@ const Avatar()
 The effect of this code is as follows:
 其运行效果如下：
 
-![Alt text](./qemu-system-x86_64_WIemLM6fwV.png)
+![Alt text](./example/readme_images/qemu-system-x86_64_WIemLM6fwV.png)
 
 你也可以指定一些头像参数，但是如果你指定一个错误的头像地址，将自动地使用默认头像，例如：
 
@@ -48,7 +48,7 @@ Avatar(
 The effect of this code is as follows:
 其运行效果如下：
 
-![Alt text](./qemu-system-x86_64_bnst46VJaj.png)
+![Alt text](./example/readme_images/qemu-system-x86_64_bnst46VJaj.png)
 
 如果要可以设置一个真实的网络图片URL作为头像，则它必须以http开头，例如：
 
@@ -65,7 +65,7 @@ const Avatar(
 The effect of this code is as follows:
 其运行效果如下：
 
-![Alt text](./qemu-system-x86_64_lAwJKTD6m8.png)
+![Alt text](./example/readme_images/qemu-system-x86_64_lAwJKTD6m8.png)
 
 Oh, this is me. An active user of the open source community!
 哦，这就是我了。一个开源社区的活跃用户！
@@ -87,7 +87,7 @@ const Avatar(
 The effect of this code is as follows:
 其运行效果如下：
 
-![Alt text](./qemu-system-x86_64_7WSEeCgXhe.gif)
+![Alt text](./example/readme_images/qemu-system-x86_64_7WSEeCgXhe.gif)
 
 If the avatar itself has a transparent background, you can see the default background color or background picture. Also, you can add an outer border for your avatar, such as:
 如果头像本身是透明背景的，可以看到默认背景色 或 背景图片。并且，你还可以为你的头像添加外边框，例如：
@@ -115,7 +115,7 @@ Avatar(
 The effect of this code is as follows:
 其运行效果如下：
 
-![Alt text](./qemu-system-x86_64_fEu0UcyoNG.png)
+![Alt text](./example/readme_images/qemu-system-x86_64_fEu0UcyoNG.png)
 
 Next is an example of using a network picture as a background picture, which will cover the background color effect:
 接下来是一个使用网络图片作为背景图的例子，这个网络图片将覆盖背景颜色效果：
@@ -136,7 +136,7 @@ const Avatar(
 The effect of this code is as follows:
 其运行效果如下：
 
-![Alt text](./qemu-system-x86_64_dm65rAAqmW.png)
+![Alt text](./example/readme_images/qemu-system-x86_64_dm65rAAqmW.png)
 
 Now, let's explore some special effects - Avatar out of the box.
 
@@ -164,7 +164,7 @@ Avatar(
 
 其效运行果如下：
 
-![Alt text](./qemu-system-x86_64_xwZukX8r5s.png)
+![Alt text](./example/readme_images/qemu-system-x86_64_xwZukX8r5s.png)
 
 尽情探索吧！~
 
