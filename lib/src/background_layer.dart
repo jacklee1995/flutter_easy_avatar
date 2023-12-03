@@ -1,20 +1,18 @@
 import 'package:flutter/material.dart';
 
 class BackgroundLayer extends StatelessWidget {
-  final double width;
-  final double height;
+  final double size;
   final String? backgroundImage;
   final Color backgroundColor;
   final double borderRadius;
 
   const BackgroundLayer({
-    Key? key,
-    required this.width,
-    required this.height,
+    super.key,
+    required this.size,
     this.backgroundImage,
     required this.backgroundColor,
     required this.borderRadius,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -22,20 +20,20 @@ class BackgroundLayer extends StatelessWidget {
       child: backgroundImage != null
           // 如果指定了背景图片，则使用背景图片
           ? SizedBox(
-              width: width,
-              height: height,
+              width: size,
+              height: size,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(borderRadius),
                 child: Image.network(
                   backgroundImage!,
-                  width: width,
-                  height: height,
+                  width: size,
+                  height: size,
                   fit: BoxFit.cover,
                   errorBuilder: (context, error, stackTrace) {
                     // 如果背景图片加载失败，不再显示背景图
                     return Container(
-                      width: width,
-                      height: height,
+                      width: size,
+                      height: size,
                       decoration: BoxDecoration(
                         // border: interlayerBorder,
                         borderRadius: BorderRadius.circular(borderRadius),
@@ -49,8 +47,8 @@ class BackgroundLayer extends StatelessWidget {
 
           // 未指定背景图时，采用纯色默认背景图
           : Container(
-              width: width,
-              height: height,
+              width: size,
+              height: size,
               decoration: BoxDecoration(
                 // border: interlayerBorder,
                 borderRadius: BorderRadius.circular(borderRadius),

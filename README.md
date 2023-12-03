@@ -15,6 +15,8 @@ A plug-in that provides solutions to avatar-related problems in Flutter applicat
 | ![Alt text](./example/readme_images/qemu-system-x86_64_WIemLM6fwV.png) | ![Alt text](./example/readme_images/qemu-system-x86_64_bnst46VJaj.png) | ![Alt text](./example/readme_images/qemu-system-x86_64_lAwJKTD6m8.png) |
 |-|-|-|
 | ![Alt text](./example/readme_images/qemu-system-x86_64_7WSEeCgXhe.gif) | ![Alt text](./example/readme_images/qemu-system-x86_64_fEu0UcyoNG.png) | ![Alt text](./example/readme_images/qemu-system-x86_64_dm65rAAqmW.png) |
+|![Alt text](./example/readme_images/example_DjGtUHWhlD.png)|![Alt text](./example/readme_images/example_3fJsyuoR7S.png)|![Alt text](./example/readme_images/example_3OdyAPmXJn.png)|
+
 
 ---
 
@@ -162,10 +164,61 @@ Avatar(
 )
 ```
 
+The effect of this code is as follows:
 其效运行果如下：
 
 ![Alt text](./example/readme_images/qemu-system-x86_64_xwZukX8r5s.png)
 
+### 文字头像（Text Avatar）
+
+Since v2.0.0, a new layer has been added to display text, but the textMode must be turned on with the `textmode` parameter. If no text is specified, it will be displayed as "?" No, otherwise it is displayed as the text specified by using the `text` parameter.
+
+从 v2.0.0 开始，添加了新的图层用于显示文字，但是必须使用 `textMode` 参数开启文字模式。如果没有指定文本，将显示为“?”号，否则显示为使用 `text` 参数所指定的文本。
+
+
+examples:
+例如：
+
+```dart
+const Avatar(textMode: true),
+```
+
+The effect of this code is as follows:
+效果为：
+
+![Alt text](./example/readme_images/example_DjGtUHWhlD.png)
+
+```dart
+const Avatar(
+  textMode: true, // 文字模式必须启用此参数
+  text: 'Lee', // 默认仅仅使用一个字符
+),
+```
+
+The effect of this code is as follows:
+效果为：
+
+![Alt text](./example/readme_images/example_3fJsyuoR7S.png)
+
+
+If the text consists of more than one word, you need to specify the number of words through the  `wordsCount` parameter to display more than one character:
+如果文本由多个单词构成，需要通过 `wordsCount` 参数指定单词的数量以显示多个字符：
+
+```dart
+const Avatar(
+  textMode: true,
+  text: 'Jun Cai',
+  borderRadius: 40,
+  wordsCount: 2, // 单词数量，用于显示多个单词的首字符
+),
+```
+
+The effect of this code is as follows:
+效果为：
+
+![Alt text](./example/readme_images/example_3OdyAPmXJn.png)
+
+Let's enjoy it!~
 尽情探索吧！~
 
 ---

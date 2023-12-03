@@ -1,8 +1,6 @@
-import 'dart:convert';
-import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'background_layer.dart';
-import 'data.dart';
+import 'text_layer.dart';
 import 'image_layer.dart';
 
 /// A widget that displays an avatar with various customization options.
@@ -30,13 +28,9 @@ import 'image_layer.dart';
 /// )
 /// ```
 class Avatar extends StatelessWidget {
-  /// The width of the avatar.
-  /// 头像的宽度
-  final double width;
-
-  /// The height of the avatar.
-  /// 头像的高度
-  final double height;
+  /// The size of the avatar.
+  // /// 头像的大小
+  final double size;
 
   /// The border radius of the avatar.
   /// 头像的边框半径
@@ -48,11 +42,22 @@ class Avatar extends StatelessWidget {
 
   /// The background color of the avatar.
   /// 头像的背景颜色
-  final Color backgroundColor;
+  final Color? backgroundColor;
 
   /// The image for the avatar.
   /// 头像的图像
   final String image;
+
+  /// The image for the avatar
+  /// 文字头像的文本
+  final String text;
+
+  final bool textMode;
+  // 文本转大写
+  final bool upperCase;
+
+  // 单词数量，用于显示多个单词的首字符
+  final int? wordsCount;
 
   /// The margin around the avatar.
   /// 头像周围的边距
@@ -99,33 +104,35 @@ class Avatar extends StatelessWidget {
   ///
   /// [margin]参数控制整个头像周围的边距，[padding]参数用于应用内部填充，仅影响头像图像。
   const Avatar({
-    Key? key,
-    this.width = 100,
-    this.height = 100,
+    super.key,
+    this.size = 100,
     this.borderRadius = 50,
     this.backgroundImage,
-    this.backgroundColor = const Color.fromARGB(255, 82, 82, 82),
+    this.backgroundColor,
     this.image = '',
+    this.text = '?',
     this.margin = EdgeInsets.zero, // 默认内边距为0
     this.padding = EdgeInsets.zero, // 默认内边距为0
     this.interlayerBorder,
     this.border,
-  }) : super(key: key);
+    this.textMode = false,
+    this.upperCase = false,
+    this.wordsCount,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: margin,
-      width: width,
-      height: height,
+      width: size,
+      height: size,
       child: Stack(
         children: [
           // 1. Background Layer
           // 1. 背景层
           BackgroundLayer(
-            width: width,
-            height: height,
-            backgroundColor: backgroundColor,
+            size: size,
+            backgroundColor: _getBgColor(),
             borderRadius: borderRadius,
           ),
 
@@ -133,8 +140,8 @@ class Avatar extends StatelessWidget {
           // 2. interlayer
           Center(
             child: SizedBox(
-              width: width,
-              height: height,
+              width: size,
+              height: size,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(borderRadius),
                 child: Container(
@@ -148,21 +155,29 @@ class Avatar extends StatelessWidget {
             ),
           ),
 
-          // 3. Avatar Layer
-          // 3. 图像层
-          ImagerLayer(
-            width: width,
-            height: height,
-            padding: padding,
-            image: image,
-            borderRadius: borderRadius,
-          ),
+          // 3.1 Avatar Layer
+          // 3.1 图像层
+          // 3.2 文字层
+          textMode
+              ? TextLayer(
+                  size: size,
+                  padding: padding,
+                  text: _getDisplayStr(),
+                  borderRadius: borderRadius,
+                )
+              : ImagerLayer(
+                  size: size,
+                  padding: padding,
+                  image: image,
+                  borderRadius: borderRadius,
+                ),
+
           // 4. 边框层
           // 4. border layer
           Center(
             child: SizedBox(
-              width: width,
-              height: height,
+              width: size,
+              height: size,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(borderRadius),
                 child: Container(
@@ -178,5 +193,69 @@ class Avatar extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  // 获取需要显示的字符串
+  String _getDisplayStr() {
+    String str = String.fromCharCodes(
+      text.runes.toList(),
+    );
+
+    str = upperCase ? str.toUpperCase() : str;
+    List<String> charList = str.trim().split(' ');
+
+    // 如果charList的长度大于 1 且等于 wordsCount
+    if (charList.length > 1 && charList.length == wordsCount) {
+      // 返回charList的第一个和第二个元素的首字母
+      return '${charList[0][0].trim()}${charList[1][0].trim()}';
+    }
+    print('DisplayStr ========================= ${str[0]}');
+    // 否则，返回newText的首字母
+    return str[0];
+  }
+
+  // 配置背景颜色
+  Color _getBgColor() {
+    if (backgroundColor != null) {
+      return backgroundColor!;
+    } else if (textMode &&
+        RegExp(r'[A-Z]|').hasMatch(
+          _getDisplayStr(),
+        )) {
+      var colorKey = _getDisplayStr()[0].toLowerCase().toString();
+      var colorMap = {
+        "a": const Color.fromARGB(255, 255, 110, 94),
+        "b": const Color.fromARGB(255, 255, 108, 157),
+        "c": const Color.fromARGB(255, 236, 128, 255),
+        "d": const Color.fromARGB(255, 180, 134, 255),
+        "e": const Color.fromARGB(255, 144, 159, 255),
+        "f": const Color.fromARGB(255, 95, 153, 255),
+        "g": const Color.fromARGB(255, 74, 198, 255),
+        "h": const Color.fromARGB(255, 77, 234, 255),
+        "i": const Color.fromARGB(255, 60, 255, 235),
+        "j": const Color.fromARGB(255, 255, 189, 67),
+        "k": const Color.fromARGB(255, 191, 255, 118),
+        "l": const Color.fromARGB(255, 97, 69, 224),
+        "m": const Color.fromARGB(255, 255, 225, 57),
+        "n": const Color.fromARGB(255, 219, 178, 27),
+        "o": const Color.fromARGB(255, 243, 164, 7),
+        "p": const Color.fromARGB(255, 255, 132, 87),
+        "q": const Color.fromARGB(255, 204, 204, 204),
+        "r": const Color.fromARGB(255, 169, 194, 207),
+        "s": const Color.fromARGB(255, 161, 106, 83),
+        "t": const Color.fromARGB(255, 156, 156, 156),
+        "u": const Color.fromARGB(255, 169, 175, 224),
+        "v": const Color.fromARGB(255, 198, 164, 255),
+        "w": const Color.fromARGB(255, 214, 214, 214),
+        "x": const Color.fromARGB(255, 132, 241, 255),
+        "y": const Color.fromARGB(255, 216, 169, 153),
+        "z": const Color.fromARGB(255, 130, 231, 99),
+      };
+
+      return colorMap.containsKey(colorKey)
+          ? colorMap[colorKey]!
+          : const Color.fromARGB(255, 82, 82, 82);
+    }
+    return const Color.fromARGB(255, 82, 82, 82);
   }
 }

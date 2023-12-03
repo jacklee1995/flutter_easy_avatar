@@ -6,15 +6,16 @@ auth:
   home: http://thispage.tech
 
 maintainer: Jcak Lee
-homepage: http://thispage.tech:9680/jclee1995/flutter-easy-avatar.git
-repository: https://github.com/jacklee1995/flutter_easy_avatar.git
+homepage: https://github.com/jacklee1995
+repository: https://github.com/jacklee1995/flutter_easy_avatar
 issue_tracker: https://github.com/jacklee1995/flutter_easy_avatar/issues
-version: 1.0.1
+version: 2.0.0
 
 environment:
   sdk: '>=3.0.0 <4.0.0'
 
 dependencies:
+  auto_size_text: ^3.0.0
   flutter:
     sdk: flutter
   path: ^1.8.3
@@ -22,7 +23,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
+  flutter_lints: ^3.0.1
 
 flutter:
   uses-material-design: true
