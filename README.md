@@ -38,8 +38,7 @@ The effect of this code is as follows:
 
 ```dart
 Avatar(
-  width: 100,
-  height: 100,
+  size: 100,
   backgroundColor: Colors.indigo,
   borderRadius: 40,
   padding: EdgeInsets.all(20),
@@ -56,8 +55,7 @@ The effect of this code is as follows:
 
 ```dart
 const Avatar(
-  width: 200,
-  height: 200,
+  size: 200,
   borderRadius: 100,
   image:
       'https://profile-avatar.csdnimg.cn/bb869bb0b79b48209c6206043890c985_qq_28550263.jpg',
@@ -77,8 +75,7 @@ Actually, you can also use animation, which doesn't matter:
 
 ```dart
 const Avatar(
-  width: 200,
-  height: 200,
+  size: 200,
   margin: EdgeInsets.all(6),
   borderRadius: 60,
   image:
@@ -96,8 +93,7 @@ If the avatar itself has a transparent background, you can see the default backg
 
 ```dart
 Avatar(
-  width: 200,
-  height: 200,
+  size: 200,
   padding: const EdgeInsets.all(10),
   margin: const EdgeInsets.all(10),
   borderRadius: 80,
@@ -124,8 +120,7 @@ Next is an example of using a network picture as a background picture, which wil
 
 ```dart
 const Avatar(
-  width: 200,
-  height: 200,
+  size: 200,
   margin: EdgeInsets.all(10),
   borderRadius: 80,
   backgroundImage:
@@ -148,8 +143,7 @@ The `Avatar` class provides an intermediate layer border property called `interl
 
 ```dart
 Avatar(
-  width: 200,
-  height: 200,
+  size: 200,
   interlayerBorder: Border.all(
     color: const Color.fromARGB(255, 255, 251, 3),
     width: 20.0,
@@ -238,8 +232,7 @@ This widget allows you to display avatars with custom dimensions, border radius,
 
 ```dart
 Avatar(
-  width: 150,
-  height: 150,
+  size: 150,
   borderRadius: 75,
   backgroundImage: 'https://example.com/avatar-background.jpg',
   backgroundColor: Colors.blue,
@@ -257,13 +250,9 @@ Creates an Avatar widget.
 
 创建Avatar组件。
 
-- `width` (double, optional): The width of the avatar. Default is 100.
+- `size` (double, optional): The size of the avatar. Default is 100.
 
-  - 头像的宽度。默认为100。
-
-- `height` (double, optional): The height of the avatar. Default is 100.
-
-  - 头像的高度。默认为100。
+  - 头像的尺寸。默认为100。
 
 - `borderRadius` (double, optional): The border radius of the avatar. Default is 50.
 
@@ -281,6 +270,22 @@ Creates an Avatar widget.
 
   - 用于设置头像的图像，可以是网络URL或本地资源路径。
 
+- `text` (String, required): The text for the avatar.
+
+  - 文字头像的文本。
+
+- `textMode` (bool, optional): Whether to use text avatar mode. Default is false.
+
+  - 是否启用文本头像模式，默认为 false。
+
+- `upperCase` (bool, optional): Use capital letters. Default is false.
+
+  - 文本转大写，默认为 false。
+
+- `wordsCount` (int, optional): Number of words, used to display the first characters of multiple words.
+
+  - 单词数量，用于显示多个单词的首字符。
+
 - `margin` (EdgeInsetsGeometry, optional): The margin around the entire avatar. Default is no margin.
 
   - 控制整个头像周围的边距。默认没有边距。
@@ -296,6 +301,19 @@ Creates an Avatar widget.
 - `interlayerBorder` (Border, optional): The interlayer border for the avatar.
 
   - 头像的中间层边框。
+
+## Major Changes in v2.0.0
+## v2.0.0 的重大变更
+
+Starting from v2.0.0:
+从 v2.0.0 开始：
+
+- The width and height properties of the Avatar class have been removed, replaced by the size property.
+- 删除了 **Avatar** 类的 `width` 属性和 `height` 属性，取而代之的为 `size` 属性。
+
+- Added the functionality of text avatars.
+- 新增了文字头像功能。
+
 
 ## Issue Tracker
 

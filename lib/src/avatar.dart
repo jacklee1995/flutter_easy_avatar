@@ -17,8 +17,7 @@ import 'image_layer.dart';
 /// Example usage:
 /// ```dart
 /// Avatar(
-///   width: 150,
-///   height: 150,
+///   size: 150,
 ///   borderRadius: 75,
 ///   backgroundImage: 'https://example.com/avatar-background.jpg',
 ///   backgroundColor: Colors.blue,
@@ -29,7 +28,7 @@ import 'image_layer.dart';
 /// ```
 class Avatar extends StatelessWidget {
   /// The size of the avatar.
-  // /// 头像的大小
+  /// 头像的大小
   final double size;
 
   /// The border radius of the avatar.
@@ -48,15 +47,20 @@ class Avatar extends StatelessWidget {
   /// 头像的图像
   final String image;
 
-  /// The image for the avatar
+  /// The text for the avatar
   /// 文字头像的文本
   final String text;
 
+  /// Whether to use text avatar mode
+  /// 是否启用文本头像模式，默认为 false
   final bool textMode;
-  // 文本转大写
+
+  /// Use capital letters
+  /// 文本转大写
   final bool upperCase;
 
-  // 单词数量，用于显示多个单词的首字符
+  /// Number of words, used to display the first characters of multiple words.
+  /// 单词数量，用于显示多个单词的首字符
   final int? wordsCount;
 
   /// The margin around the avatar.

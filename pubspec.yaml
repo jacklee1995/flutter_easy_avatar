@@ -9,7 +9,7 @@ maintainer: Jcak Lee
 homepage: https://github.com/jacklee1995
 repository: https://github.com/jacklee1995/flutter_easy_avatar
 issue_tracker: https://github.com/jacklee1995/flutter_easy_avatar/issues
-version: 2.0.0
+version: 2.0.1
 
 environment:
   sdk: '>=3.0.0 <4.0.0'
